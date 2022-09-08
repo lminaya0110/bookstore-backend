@@ -7,7 +7,7 @@ const app = express();
 // Middlewares
 app.use(express.json());
 app.use(cors());
-app.use("/books", router); // localhost:5000/books
+app.use("/books", router); 
 
 mongoose
   .connect(
