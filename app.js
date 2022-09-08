@@ -1,3 +1,5 @@
+require('dotenv').config()
+const path = require('path')
 const express = require("express");
 const mongoose = require("mongoose");
 const router = require("./routes/book-routes");
@@ -11,11 +13,11 @@ app.use("/books", router);
 
 mongoose
   .connect(
-    "mongodb+srv://lcm:V9sH2F60Hi1yhy48@cluster0.46xeqc0.mongodb.net/?retryWrites=true&w=majority"
+    process.env.MONGO_URI
   )
   .then(() => console.log("Connected To Database"))
   .then(() => {
-    app.listen(5000);
+    app.listen(process.env.PORT || 5000);
   })
   .catch((err) => console.log(err));
   
